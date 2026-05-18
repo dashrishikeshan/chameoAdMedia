@@ -866,9 +866,10 @@ h3 {
   right: 22px;
   bottom: 22px;
   z-index: 80;
-  display: grid;
-  gap: 10px;
-  justify-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
 .whatsapp-button,
@@ -876,33 +877,43 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
+  width: 52px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0;
   border: 0;
   border-radius: 999px;
   box-shadow: 0 16px 34px rgba(8, 60, 114, 0.18);
   cursor: pointer;
   font-weight: 900;
+  line-height: 1;
 }
 
 .whatsapp-button {
-  width: 54px;
-  height: 54px;
-  padding: 0;
   color: #fff;
-  background: linear-gradient(135deg, #0aa84f, var(--green));
+  background: #25d366;
+  box-shadow: 0 16px 34px rgba(37, 211, 102, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .whatsapp-button svg {
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   fill: currentColor;
 }
 
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
+  background: #16bd58;
+  box-shadow: 0 18px 38px rgba(37, 211, 102, 0.34);
+  outline: none;
+  transform: translateY(-2px);
+}
+
 .back-to-top {
-  width: 46px;
   color: #fff;
   background: linear-gradient(135deg, var(--blue), var(--teal));
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
@@ -1147,11 +1158,11 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
 
   .hero-overlay h1,
   .page-hero h1 {
-    max-width: calc(100vw - 32px);
-    font-size: clamp(1.55rem, 5.8vw, 1.95rem);
+    max-width: min(calc(100vw - 32px), 28ch);
+    font-size: clamp(1.35rem, 5.1vw, 1.72rem);
     line-height: 1.08;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .hero-overlay p:not(.eyebrow),
@@ -1210,18 +1221,20 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
   }
 
   .floating-actions {
-    right: 14px;
-    bottom: 14px;
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    gap: 10px;
   }
 
-  .whatsapp-button {
+  .whatsapp-button,
+  .back-to-top {
     width: 48px;
     height: 48px;
     min-height: 48px;
   }
 
-  .back-to-top {
-    width: 42px;
-    min-height: 42px;
+  .whatsapp-button svg {
+    width: 27px;
+    height: 27px;
   }
 }
